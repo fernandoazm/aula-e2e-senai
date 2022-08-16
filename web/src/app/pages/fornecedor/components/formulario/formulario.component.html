@@ -1,0 +1,108 @@
+<div class="w-29rem">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="nomeFantasia">NomeFantasia</label>
+      <input
+        id="nomeFantasia"
+        formControlName="nomeFantasia"
+        data-test="fornecedor-form-fantasia"
+        placeholder="Nome Fantasia"
+        pInputText
+        type="text"
+        [class.ng-invalid]="
+          nomeFantasia?.invalid &&
+          (nomeFantasia?.dirty || nomeFantasia?.touched)
+        "
+        class="ng-dirty w-full"
+        [maxLength]="200"
+      />
+    </div>
+    <div class="field">
+      <label for="razaoSocial">RazaoSocial</label>
+      <input
+        id="razaoSocial"
+        formControlName="razaoSocial"
+        data-test="fornecedor-form-social"
+        placeholder="Razao Social"
+        pInputText
+        type="text"
+        [class.ng-invalid]="
+          razaoSocial?.invalid && (razaoSocial?.dirty || razaoSocial?.touched)
+        "
+        class="ng-dirty w-full"
+        [maxLength]="200"
+      />
+    </div>
+    <div class="field">
+      <label for="cnpj">Cnpj</label>
+      <input
+        id="cnpj"
+        formControlName="cnpj"
+        data-test="fornecedor-form-cnpj"
+        placeholder="Cnpj"
+        pInputText
+        type="text"
+        [class.ng-invalid]="cnpj?.invalid && (cnpj?.dirty || cnpj?.touched)"
+        class="ng-dirty w-full"
+      />
+    </div>
+    <div class="field">
+      <label for="fone">Fone</label>
+      <input
+        id="fone"
+        formControlName="fone"
+        data-test="fornecedor-form-fone"
+        placeholder="Fone"
+        pInputText
+        type="text"
+        [class.ng-invalid]="
+          razaoSocial?.invalid && (razaoSocial?.dirty || razaoSocial?.touched)
+        "
+        class="ng-dirty w-full"
+      />
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        data-test="fornecedor-form-email"
+        placeholder="Email"
+        pInputText
+        type="text"
+        [class.ng-invalid]="
+          razaoSocial?.invalid && (razaoSocial?.dirty || razaoSocial?.touched)
+        "
+        class="ng-dirty w-full"
+        [maxLength]="200"
+      />
+    </div>
+    <div class="field">
+      <div class="field">
+        <label for="situacaoCadastro">SituacaoCadastro</label>
+        <p-dropdown
+          id="situacaoCadastro"
+          [options]="situacoesCadastro"
+          formControlName="situacaoCadastro"
+          data-test="fornecedor-form-tipo"
+          optionLabel="name"
+          optionValue="code"
+          [class.ng-invalid]="
+            situacaoCadastro?.invalid &&
+            (situacaoCadastro?.dirty || situacaoCadastro?.touched)
+          "
+          class="ng-dirty w-full"
+        ></p-dropdown>
+      </div>
+      <button
+        class="w-full"
+        [loading]="isLoading"
+        pButton
+        [disabled]="form.invalid"
+        type="submit"
+        data-test="fornecedor-form-submit"
+        [label]="fornecedor ? 'Editar' : 'Cadastrar'"
+      ></button>
+    </div>
+  </form>
+</div>

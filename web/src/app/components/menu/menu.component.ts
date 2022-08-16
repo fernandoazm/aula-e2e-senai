@@ -12,6 +12,7 @@ export class MenuComponent {
   items: MenuItem[] = [
     { label: 'Home', routerLink: '/', icon: 'pi pi-fw pi-th-large' },
     { label: 'Banco', routerLink: '/banco', icon: 'pi pi-fw pi-home' },
+    { label: 'Fornecedor', routerLink: '/fornecedor', icon: 'pi pi-fw pi-home' },
   ];
 
   constructor() { }
